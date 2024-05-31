@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'dj_rest_auth',
     'compressor',
-    
     # Your apps
     'users',
     'providers',
