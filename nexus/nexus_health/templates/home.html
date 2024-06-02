@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Our Website</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Teal color scheme */
+      .bg-teal-500 {
+        background-color: #0d9488;
+      }
+      .text-teal-500 {
+        color: #0d9488;
+      }
+      .hover\:text-teal-700:hover {
+        color: #0c7b73;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-white shadow">
+      <nav class="container mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="#" class="text-xl font-bold text-teal-500">Nexus Health</a>
+        <div class="flex items-center">
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Home</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Admin</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Accounts</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Auth</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Registration</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Users</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Providers</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Appointments</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">EHR</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Billing</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Analytics</a>
+          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Notifications</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto py-12 px-6">
+      <section class="mb-12">
+        <h2 class="text-4xl font-bold text-teal-500 mb-4">Welcome</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
+          enim non nisi volutpat, nec tincidunt ipsum consequat. Nullam commodo
+          nisi vel ligula blandit, vel euismod turpis vulputate.
+        </p>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold text-teal-500 mb-4">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Admin</h3>
+            <p class="text-gray-600">
+              The admin app provides an administrative interface for managing your website's content.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Accounts</h3>
+            <p class="text-gray-600">
+              The accounts app handles user authentication and account management.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Auth</h3>
+            <p class="text-gray-600">
+              The auth app provides additional authentication features and functionality.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Registration</h3>
+            <p class="text-gray-600">
+              The registration app handles user registration and onboarding.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Users</h3>
+            <p class="text-gray-600">
+              The users app manages user profiles and user-related functionality.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Providers</h3>
+            <p class="text-gray-600">
+              The providers app handles provider profiles and provider-related features.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Appointments</h3>
+            <p class="text-gray-600">
+              The appointments app manages appointment scheduling and related functionality.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">EHR</h3>
+            <p class="text-gray-600">
+              The EHR (Electronic Health Records) app handles patient medical records and related features.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Billing</h3>
+            <p class="text-gray-600">
+              The billing app manages billing, invoicing, and payment-related functionality.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Analytics</h3>
+            <p class="text-gray-600">
+              The analytics app provides data analysis and reporting features.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold text-teal-500 mb-2">Notifications</h3>
+            <p class="text-gray-600">
+              The notifications app handles notifications and messaging functionality.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-teal-500 py-6">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-white">&copy; 2023 My Website. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
