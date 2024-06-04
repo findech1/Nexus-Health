@@ -1,221 +1,75 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Our Website</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      /* Teal color scheme */
-      .bg-teal-500 {
-        background-color: #0d9488;
-      }
-      .text-teal-500 {
-        color: #0d9488;
-      }
-      .hover\:text-teal-700:hover {
-        color: #0c7b73;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-100">
-    <header class="bg-white shadow">
-      <nav class="container mx-auto px-6 py-3 flex items-center justify-between">
-        <a href="#" class="text-xl font-bold text-teal-500">Nexus Health</a>
-        <div class="flex items-center">
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Home</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Admin</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Accounts</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Auth</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Registration</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Users</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Providers</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Appointments</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">EHR</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Billing</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Analytics</a>
-          <a href="#" class="text-gray-600 hover:text-teal-700 mx-4">Notifications</a>
-        </div>
-      </nav>
-    </header>
-
-    <main class="container mx-auto py-12 px-6">
-      <section class="mb-12">
-        <h2 class="text-4xl font-bold text-teal-500 mb-4">Welcome</h2>
-        <p class="text-gray-600 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
-          enim non nisi volutpat, nec tincidunt ipsum consequat. Nullam commodo
-          nisi vel ligula blandit, vel euismod turpis vulputate.
-        </p>
-      </section>
-
-      <section class="mb-12">
-        <h2 class="text-3xl font-bold text-teal-500 mb-4">Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Admin</h3>
-            <p class="text-gray-600">
-              The admin app provides an administrative interface for managing your website's content.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Accounts</h3>
-            <p class="text-gray-600">
-              The accounts app handles user authentication and account management.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Auth</h3>
-            <p class="text-gray-600">
-              The auth app provides additional authentication features and functionality.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Registration</h3>
-            <p class="text-gray-600">
-              The registration app handles user registration and onboarding.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Users</h3>
-            <p class="text-gray-600">
-              The users app manages user profiles and user-related functionality.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Providers</h3>
-            <p class="text-gray-600">
-              The providers app handles provider profiles and provider-related features.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Appointments</h3>
-            <p class="text-gray-600">
-              The appointments app manages appointment scheduling and related functionality.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">EHR</h3>
-            <p class="text-gray-600">
-              The EHR (Electronic Health Records) app handles patient medical records and related features.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Billing</h3>
-            <p class="text-gray-600">
-              The billing app manages billing, invoicing, and payment-related functionality.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Analytics</h3>
-            <p class="text-gray-600">
-              The analytics app provides data analysis and reporting features.
-            </p>
-          </div>
-          <div class="bg-white rounded-lg shadow-md p-6">
-            <h3 class="text-xl font-bold text-teal-500 mb-2">Notifications</h3>
-            <p class="text-gray-600">
-              The notifications app handles notifications and messaging functionality.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="bg-teal-500 py-6">
-      <div class="container mx-auto px-6 text-center">
-        <p class="text-white">&copy; 2023 My Website. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
-</html> -->
-
-{% extends "base.html" %}
-
-{% block title %}Welcome to Our Website{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<section class="mb-12">
-  <h2 class="text-4xl font-bold text-teal-500 mb-4">Welcome</h2>
-  <p class="text-gray-600 leading-relaxed">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
-    enim non nisi volutpat, nec tincidunt ipsum consequat. Nullam commodo
-    nisi vel ligula blandit, vel euismod turpis vulputate.
-  </p>
-</section>
+    <div x-data="{showMenu: false}">
+        <header class="py-4 px-6 md:px-12 flex justify-between items-center">
+            <a href="{% url 'landing' %}" class="flex items-center">
+                <img src="{% static 'images/adonis-logo.svg' %}" alt="Adonis Logo" class="h-8">
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-[#b0ff4a]">How it works</a>
+                <a href="#" class="hover:text-[#b0ff4a]">Why adonis?</a>
+                <a href="#" class="hover:text-[#b0ff4a]">About</a>
+                <a href="#" class="hover:text-[#b0ff4a]">Blog</a>
+                <a href="#" class="hover:text-[#b0ff4a]">Careers</a>
+            </nav>
+            <div class="hidden md:flex space-x-4">
+                <a href="{% url 'doctor-login' %}" class="text-[#b0ff4a] hover:text-white">Doctor Login</a>
+                <a href="{% url 'patient-login' %}" class="bg-[#b0ff4a] text-[#001f41] px-4 py-2 rounded-md hover:bg-white">Patient Login</a>
+            </div>
+            <button class="md:hidden" @click="showMenu = !showMenu">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path x-show="!showMenu" d="M4 6h16M4 12h16M4 18h16" />
+                    <path x-show="showMenu" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </header>
 
-<section class="mb-12">
-  <h2 class="text-3xl font-bold text-teal-500 mb-4">Features</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Admin</h3>
-      <p class="text-gray-600">
-        The admin app provides an administrative interface for managing your website's content.
-      </p>
+        <div x-show="showMenu" class="md:hidden bg-[#001f41] py-4 px-6 space-y-4">
+            <a href="#" class="block hover:text-[#b0ff4a]">How it works</a>
+            <a href="#" class="block hover:text-[#b0ff4a]">Why adonis?</a>
+            <a href="#" class="block hover:text-[#b0ff4a]">About</a>
+            <a href="#" class="block hover:text-[#b0ff4a]">Blog</a>
+            <a href="#" class="block hover:text-[#b0ff4a]">Careers</a>
+            <div class="space-x-4">
+                <a href="{% url 'doctor-login' %}" class="text-[#b0ff4a] hover:text-white">Doctor Login</a>
+                <a href="{% url 'patient-login' %}" class="bg-[#b0ff4a] text-[#001f41] px-4 py-2 rounded-md hover:bg-white">Patient Login</a>
+            </div>
+        </div>
+
+        <div class="px-6 md:px-12 py-12 md:py-24 flex flex-col md:flex-row items-center justify-between">
+            <div class="space-y-6 max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold">Revenue in healthcare is hard. <br> We can help.</h1>
+                <p class="text-lg">Adonis is the first revenue intelligence platform that delivers AI-driven insights to help your medical practice, hospital.</p>
+                <a href="#" class="bg-[#b0ff4a] text-[#001f41] px-6 py-3 rounded-md hover:bg-white">Get started</a>
+            </div>
+            <div class="mt-12 md:mt-0">
+                <img src="{% static 'images/hero-image.png' %}" alt="Hero Image" class="w-full max-w-md">
+            </div>
+        </div>
+
+        <div class="bg-[#001a36] py-12 md:py-24">
+            <div class="px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-12">
+                <div class="col-span-1 md:col-span-3 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold">Adonis helps your team collect more</h2>
+                    <p class="text-lg">Revenue is your most important business process. The way you conduct your business should be as if it were one.</p>
+                </div>
+                <div class="col-span-1 md:col-span-2 flex items-center justify-end">
+                    <a href="#" class="bg-[#b0ff4a] text-[#001f41] px-6 py-3 rounded-md hover:bg-white">Get started</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-6 md:px-12 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <img src="{% static 'images/partner-logos.png' %}" alt="Partner Logos" class="w-full">
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold">Revenue drives your business.</h2>
+                <p class="text-lg">Revenue is your most important business process. The way you conduct your business should be as if it were one.</p>
+                <a href="#" class="bg-[#b0ff4a] text-[#001f41] px-6 py-3 rounded-md hover:bg-white">Get started</a>
+            </div>
+        </div>
     </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Accounts</h3>
-      <p class="text-gray-600">
-        The accounts app handles user authentication and account management.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Auth</h3>
-      <p class="text-gray-600">
-        The auth app provides additional authentication features and functionality.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Registration</h3>
-      <p class="text-gray-600">
-        The registration app handles user registration and onboarding.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Users</h3>
-      <p class="text-gray-600">
-        The users app manages user profiles and user-related functionality.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Providers</h3>
-      <p class="text-gray-600">
-        The providers app handles provider profiles and provider-related features.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Appointments</h3>
-      <p class="text-gray-600">
-        The appointments app manages appointment scheduling and related functionality.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">EHR</h3>
-      <p class="text-gray-600">
-        The EHR (Electronic Health Records) app handles patient medical records and related features.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Billing</h3>
-      <p class="text-gray-600">
-        The billing app manages billing, invoicing, and payment-related functionality.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Analytics</h3>
-      <p class="text-gray-600">
-        The analytics app provides data analysis and reporting features.
-      </p>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h3 class="text-xl font-bold text-teal-500 mb-2">Notifications</h3>
-      <p class="text-gray-600">
-        The notifications app handles notifications and messaging functionality.
-      </p>
-    </div>
-  </div>
-</section>
 {% endblock %}

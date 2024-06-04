@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss/plugins/flowbite";
+
+@layer base {
+    :root {
+        --color-primary: #4B5563;
+        --color-secondary: #6B7280;
+        --font-body: 'Inter', sans-serif;
+        --font-heading: 'Roboto', serif;
+    }
+}
+
