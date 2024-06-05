@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-teal-100">
+    <div class="bg-white p-8 rounded shadow-md w-full">
+        <h2 class="text-2xl font-bold text-center mb-8">EHR Detail</h2>
+        <p><strong>Patient:</strong> {{ record.patient.name }}</p>
+        <p><strong>Date:</strong> {{ record.date }}</p>
+        <p><strong>Details:</strong> {{ record.details }}</p>
+    </div>
+</div>
+{% endblock %}

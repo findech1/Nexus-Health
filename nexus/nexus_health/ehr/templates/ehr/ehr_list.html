@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-teal-100">
+    <div class="bg-white p-8 rounded shadow-md w-full">
+        <h2 class="text-2xl font-bold text-center mb-8">EHR List</h2>
+        <ul>
+            {% for record in records %}
+                <li class="mb-4">
+                    <a href="{% url 'ehr-detail' record.id %}" class="text-teal-600 hover:underline">
+                        Record for {{ record.patient.name }} - {{ record.date }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

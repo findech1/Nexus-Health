@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-teal-100">
+    <div class="bg-white p-8 rounded shadow-md w-full">
+        <h2 class="text-2xl font-bold text-center mb-8">Billing List</h2>
+        <ul>
+            {% for bill in bills %}
+                <li class="mb-4">
+                    <a href="{% url 'billing-detail' bill.id %}" class="text-teal-600 hover:underline">
+                        Bill for {{ bill.patient.name }} - {{ bill.amount }} ({{ bill.status }})
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

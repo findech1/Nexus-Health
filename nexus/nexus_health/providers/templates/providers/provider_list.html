@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-teal-100">
+    <div class="bg-white p-8 rounded shadow-md w-full">
+        <h2 class="text-2xl font-bold text-center mb-8">Providers List</h2>
+        <ul>
+            {% for provider in providers %}
+                <li class="mb-4">
+                    <a href="{% url 'provider-detail' provider.id %}" class="text-teal-600 hover:underline">
+                        Dr. {{ provider.name }} - {{ provider.specialty }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
