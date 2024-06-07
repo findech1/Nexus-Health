@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,20 +7,49 @@
     <title>Nexus Health</title>
     <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
-                <a href="{% url 'doctor-login' %}" class="text-teal-700 hover:text-teal-500">Doctor Login</a>
-                <a href="{% url 'patient-login' %}" class="text-teal-700 hover:text-teal-500">Patient Login</a>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+    <header class="bg-teal-600 shadow-md">
+        <nav class="container mx-auto p-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-white text-2xl font-bold">
+                Nexus Health
+            </div>
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 mt-4 md:mt-0">
+                <a href="{% url 'doctor-login' %}" class="text-white hover:text-teal-200 transition duration-300">Doctor Login</a>
+                <a href="{% url 'patient-login' %}" class="text-white hover:text-teal-200 transition duration-300">Patient Login</a>
             </div>
         </nav>
     </header>
-    <main class="container mx-auto p-4">
+    <main class="container mx-auto p-6">
+        <section class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h1 class="text-3xl font-bold text-teal-700 mb-4">Welcome to Nexus Health</h1>
+            <p class="text-gray-700 mb-4">Nexus Health is a cutting-edge virtual health system that connects you with healthcare professionals from the comfort of your home. Our platform offers a range of services to ensure you receive the best possible care, anytime and anywhere.</p>
+            <p class="text-gray-700 mb-4">Our services include virtual consultations, online prescriptions, and personalized health advice. Whether you are a doctor looking to expand your practice or a patient seeking convenient healthcare solutions, Nexus Health is here to support you.</p>
+            <p class="text-gray-700">Join us today and be a part of the future of healthcare.</p>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-teal-600 mb-2">For Doctors</h2>
+                <p class="text-gray-700 mb-4">Expand your reach and offer your expertise to patients nationwide. Our secure and easy-to-use platform allows you to manage your appointments and consultations seamlessly.</p>
+                <a href="{% url 'doctor-login' %}" class="text-teal-600 hover:text-teal-400 font-semibold">Learn More</a>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-teal-600 mb-2">For Patients</h2>
+                <p class="text-gray-700 mb-4">Get access to top-notch healthcare without leaving your home. Schedule virtual appointments, get prescriptions, and receive personalized medical advice from certified doctors.</p>
+                <a href="{% url 'patient-login' %}" class="text-teal-600 hover:text-teal-400 font-semibold">Learn More</a>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-bold text-teal-600 mb-2">Our Technology</h2>
+                <p class="text-gray-700 mb-4">We leverage the latest technology to ensure secure and reliable virtual consultations. Our platform is built with user-friendliness in mind, providing a smooth experience for both doctors and patients.</p>
+                <a href="{% url 'landing' %}" class="text-teal-600 hover:text-teal-400 font-semibold">Learn More</a>
+            </div>
+        </section>
         {% block content %}
         {% endblock %}
     </main>
+    <footer class="bg-teal-600 text-white mt-8 py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Nexus Health. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
-</html> 
-
-
+</html>
