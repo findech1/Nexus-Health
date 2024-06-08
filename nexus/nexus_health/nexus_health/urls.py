@@ -35,9 +35,15 @@ Including another URLconf
 #     path('analytics/', include('analytics.urls')),
 #     path('', home_view, name='home'),
 # ]
+# # nexus_health/urls.py
+
+# nexus_health/urls.py
+
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from users.views import profile_view  # Import the profile_view function
+from allauth.account.views import LoginView, SignupView  # Import the LoginView and SignupView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -51,8 +57,9 @@ urlpatterns = [
     path('billing/', include('billing.urls')),
     path('notifications/', include('notifications.urls')),
     path('analytics/', include('analytics.urls')),
-    path('doctor/login/', TemplateView.as_view(template_name='users/doctor_login.html'), name='doctor-login'),
-    path('patient/login/', TemplateView.as_view(template_name='users/patient_login.html'), name='patient-login'),
+    path('doctor/login/', LoginView.as_view(), name='doctor-login'),  # Use LoginView for doctor login
+    path('patient/login/', LoginView.as_view(), name='patient-login'),  # Use LoginView for patient login
+    path('accounts/signup/', SignupView.as_view(), name='account_signup'),  # Use SignupView for signup
+    path('accounts/profile/', profile_view, name='profile'),
     path('', TemplateView.as_view(template_name='landing.html'), name='landing'),
 ]
-
