@@ -557,3 +557,21 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+
+.h-8 {
+  max-width: 100%;
+  height: auto;
+  width: 500px; /* Default size */
+}
+
+@media screen and (max-width: 768px) {
+  .h-8 {
+      width: 200px; /* Adjust size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .h-8 {
+      width: 150px; /* Adjust size for mobile devices */
+  }
+}
