@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Report</title>
+    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+</head>
+<body class="bg-teal-100">
+    <div class="min-h-screen flex items-center justify-center bg-teal-100">
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-3xl mx-auto mt-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Analytics Report</h2>
+            <div class="text-lg">
+                <p class="mb-4">Total Patients: {{ total_patients }}</p>
+                <p class="mb-4">Total Appointments: {{ total_appointments }}</p>
+                <p class="mb-4">Total Revenue: ${{ total_revenue }}</p>
+                <p class="mb-4">Pending Bills: {{ pending_bills }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

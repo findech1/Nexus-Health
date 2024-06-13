@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
+</head>
+<body class="bg-teal-100">
+    <div class="min-h-screen flex items-center justify-center py-10">
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-6xl">
+            <h2 class="text-4xl font-bold text-center mb-8">Analytics Dashboard</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div class="p-6 bg-teal-500 text-white rounded-lg">
+                    <div class="text-xl font-semibold mb-2">Total Patients</div>
+                    <div class="text-3xl font-bold">{{ total_patients }}</div>
+                </div>
+                <div class="p-6 bg-teal-500 text-white rounded-lg">
+                    <div class="text-xl font-semibold mb-2">Total Appointments</div>
+                    <div class="text-3xl font-bold">{{ total_appointments }}</div>
+                </div>
+                <div class="p-6 bg-teal-500 text-white rounded-lg">
+                    <div class="text-xl font-semibold mb-2">Total Revenue</div>
+                    <div class="text-3xl font-bold">${{ total_revenue }}</div>
+                </div>
+                <div class="p-6 bg-teal-500 text-white rounded-lg">
+                    <div class="text-xl font-semibold mb-2">Pending Bills</div>
+                    <div class="text-3xl font-bold">{{ pending_bills }}</div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded shadow-md mb-8">
+                <h3 class="text-2xl font-bold mb-4">Appointments Overview</h3>
+                <canvas id="appointmentsChart" width="400" height="200"></canvas>
+            </div>
+
+            <div class="bg-white p-8 rounded shadow-md">
+                <h3 class="text-2xl font-bold mb-4">Revenue Overview</h3>
+                <canvas id="revenueChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Data for Appointments Chart
+        const appointmentsData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Appointments',
+                data: [30, 20, 50, 40, 70, 60],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Config for Appointments Chart
+        const appointmentsConfig = {
+            type: 'bar',
+            data: appointmentsData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render Appointments Chart
+        const appointmentsChart = new Chart(
+            document.getElementById('appointmentsChart'),
+            appointmentsConfig
+        );
+
+        // Data for Revenue Chart
+        const revenueData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Revenue',
+                data: [5000, 7000, 8000, 6000, 9000, 11000],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Config for Revenue Chart
+        const revenueConfig = {
+            type: 'line',
+            data: revenueData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render Revenue Chart
+        const revenueChart = new Chart(
+            document.getElementById('revenueChart'),
+            revenueConfig
+        );
+    </script>
+</body>
+</html>
