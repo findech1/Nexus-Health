@@ -1,0 +1,15 @@
+<!-- ehr/templates/ehr/sale_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Sale Detail{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Sale Detail</h1>
+    <div class="bg-white p-6 rounded shadow-md">
+        <p><strong>Patient:</strong> {{ object.patient }}</p>
+        <p><strong>Product:</strong> {{ object.product.name }}</p>
+        <p><strong>Quantity:</strong> {{ object.quantity }}</p>
+        <p><strong>Total Price:</strong> {{ object.total_price }}</p>
+        <p><strong>Sale Date:</strong> {{ object.sale_date }}</p>
+    </div>
+{% endblock %}

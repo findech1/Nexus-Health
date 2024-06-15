@@ -1,0 +1,32 @@
+<!-- ehr/templates/ehr/product_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Products</h1>
+    <table class="table-auto w-full bg-white shadow-md rounded">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">Description</th>
+                <th class="px-4 py-2">Price</th>
+                <th class="px-4 py-2">Stock</th>
+                <th class="px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in object_list %}
+            <tr class="border-t">
+                <td class="border px-4 py-2">{{ product.name }}</td>
+                <td class="border px-4 py-2">{{ product.description }}</td>
+                <td class="border px-4 py-2">{{ product.price }}</td>
+                <td class="border px-4 py-2">{{ product.stock }}</td>
+                <td class="border px-4 py-2">
+                    <a href="{% url 'product-detail' product.pk %}" class="text-blue-500 hover:underline">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

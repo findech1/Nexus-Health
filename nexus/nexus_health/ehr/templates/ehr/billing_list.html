@@ -1,0 +1,17 @@
+<!-- ehr/templates/ehr/billing_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="billing-list mx-auto max-w-lg">
+    <h2 class="text-2xl font-bold mb-4">Billing List</h2>
+    <ul class="divide-y divide-gray-200">
+        {% for bill in billing_list %}
+        <li class="py-4">
+            <p class="text-lg"><strong>{{ bill.description }}</strong></p>
+            <p class="text-gray-600">Amount: {{ bill.amount }}</p>
+            <p class="text-gray-600">Date: {{ bill.date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

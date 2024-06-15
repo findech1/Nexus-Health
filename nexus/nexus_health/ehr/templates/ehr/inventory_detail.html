@@ -1,0 +1,12 @@
+<!-- ehr/templates/ehr/inventory_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Inventory Detail{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Inventory Detail</h1>
+    <div class="bg-white p-6 rounded shadow-md">
+        <p><strong>Product:</strong> {{ object.product.name }}</p>
+        <p><strong>Quantity:</strong> {{ object.quantity }}</p>
+    </div>
+{% endblock %}

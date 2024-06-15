@@ -1,0 +1,13 @@
+<!-- ehr/templates/ehr/billing_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="billing-detail mx-auto max-w-lg">
+    <h2 class="text-2xl font-bold mb-4">Billing Detail</h2>
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <p class="text-lg"><strong>Description:</strong> {{ bill.description }}</p>
+        <p class="text-gray-600">Amount: {{ bill.amount }}</p>
+        <p class="text-gray-600">Date: {{ bill.date }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,12 +1,14 @@
+<!-- ehr/templates/ehr/ehr_detail.html -->
 {% extends 'base.html' %}
 
+{% block title %}Health Record Detail{% endblock %}
+
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-teal-100">
-    <div class="bg-white p-8 rounded shadow-md w-full">
-        <h2 class="text-2xl font-bold text-center mb-8">EHR Detail</h2>
-        <p><strong>Patient:</strong> {{ record.patient.name }}</p>
-        <p><strong>Date:</strong> {{ record.date }}</p>
-        <p><strong>Details:</strong> {{ record.details }}</p>
+    <h1 class="text-2xl font-bold mb-4">Health Record Detail</h1>
+    <div class="bg-white p-6 rounded shadow-md">
+        <p><strong>Patient:</strong> {{ object.patient }}</p>
+        <p><strong>Appointment:</strong> {{ object.appointment }}</p>
+        <p><strong>Diagnosis:</strong> {{ object.diagnosis }}</p>
+        <p><strong>Treatment Plan:</strong> {{ object.treatment_plan }}</p>
     </div>
-</div>
 {% endblock %}

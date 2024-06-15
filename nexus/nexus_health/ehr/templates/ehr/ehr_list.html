@@ -1,18 +1,32 @@
+<!-- ehr/templates/ehr/ehr_list.html -->
 {% extends 'base.html' %}
 
+{% block title %}Health Records{% endblock %}
+
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-teal-100">
-    <div class="bg-white p-8 rounded shadow-md w-full">
-        <h2 class="text-2xl font-bold text-center mb-8">EHR List</h2>
-        <ul>
-            {% for record in records %}
-                <li class="mb-4">
-                    <a href="{% url 'ehr-detail' record.id %}" class="text-teal-600 hover:underline">
-                        Record for {{ record.patient.name }} - {{ record.date }}
-                    </a>
-                </li>
+    <h1 class="text-2xl font-bold mb-4">Health Records</h1>
+    <table class="table-auto w-full bg-white shadow-md rounded">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="px-4 py-2">Patient</th>
+                <th class="px-4 py-2">Appointment</th>
+                <th class="px-4 py-2">Diagnosis</th>
+                <th class="px-4 py-2">Treatment Plan</th>
+                <th class="px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in object_list %}
+            <tr class="border-t">
+                <td class="border px-4 py-2">{{ record.patient }}</td>
+                <td class="border px-4 py-2">{{ record.appointment }}</td>
+                <td class="border px-4 py-2">{{ record.diagnosis }}</td>
+                <td class="border px-4 py-2">{{ record.treatment_plan }}</td>
+                <td class="border px-4 py-2">
+                    <a href="{% url 'ehr-detail' record.pk %}" class="text-blue-500 hover:underline">View</a>
+                </td>
+            </tr>
             {% endfor %}
-        </ul>
-    </div>
-</div>
+        </tbody>
+    </table>
 {% endblock %}
