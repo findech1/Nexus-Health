@@ -1,4 +1,4 @@
-#!/home/linder/Nexus-Health/nexus/bin/python3
+#!/home/linder/Nexus-Health/nexus/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

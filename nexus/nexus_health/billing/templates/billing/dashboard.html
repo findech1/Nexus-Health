@@ -1,0 +1,39 @@
+<!-- billing/templates/billing/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="bg-gray-800 text-gray-100 w-64 flex-shrink-0">
+      <div class="p-4">
+        <h2 class="text-xl font-bold mb-4">Billing Dashboard</h2>
+        <nav>
+          <ul>
+            <li class="mb-2">
+              <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'billing-list' %}bg-gray-700{% endif %}">
+                Billing Records
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-gray-700{% endif %}">
+                Create Record
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex-1 p-4">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>

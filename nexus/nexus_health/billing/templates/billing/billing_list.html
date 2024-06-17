@@ -1,4 +1,4 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <div class="min-h-screen flex items-center justify-center bg-teal-100">
@@ -13,6 +13,9 @@
                 </li>
             {% endfor %}
         </ul>
+        <button class="mt-4 bg-teal-500 text-white py-2 px-4 rounded">
+            <a href="{% url 'create-billing-record' %}">Create New Billing Record</a>
+        </button>
     </div>
 </div>
-{% endblock %} -->
+{% endblock %}
