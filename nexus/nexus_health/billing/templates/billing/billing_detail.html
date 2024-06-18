@@ -1,16 +1,43 @@
--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-teal-900">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="bg-teal-700 text-white w-64 flex-shrink-0">
+            <div class="p-4">
+                <h2 class="text-xl font-bold mb-4">Billing Dashboard</h2>
+                <nav>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-teal-600{% endif %}">Dashboard Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'billing-list' %}bg-teal-600{% endif %}">Billing Records</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-teal-600{% endif %}">Create Record</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
 
-
-{% block content %}
-<div class="min-h-screen flex items-center justify-center bg-teal-100">
-    <div class="bg-white p-8 rounded shadow-md w-full">
-        <h2 class="text-2xl font-bold text-center mb-8">Billing Detail</h2>
-        <p><strong>Patient:</strong> {{ bill.patient.name }}</p>
-        <p><strong>Amount:</strong> {{ bill.amount }}</p>
-        <p><strong>Status:</strong> {{ bill.status }}</p>
-        <p><strong>Date Issued:</strong> {{ bill.date_issued }}</p>
-        <p><strong>Due Date:</strong> {{ bill.due_date }}</p>
-        <button class="mt-4 bg-teal-500 text-white py-2 px-4 rounded">Pay Now</button>
+        <!-- Main Content -->
+        <div class="flex-1 p-4">
+            <h1 class="text-2xl font-bold mb-4">Billing Record Detail</h1>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-teal-600 mb-2">Patient: {{ billing_record.patient }}</h2>
+                <p class="text-gray-700">Amount: ${{ billing_record.amount }}</p>
+                <p class="text-gray-700">Status: {{ billing_record.status }}</p>
+                <a href="{% url 'billing-list' %}" class="mt-4 inline-block bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700">Back to List</a>
+            </div>
+        </div>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>

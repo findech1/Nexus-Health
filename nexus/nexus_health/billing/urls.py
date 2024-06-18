@@ -9,10 +9,11 @@
 from django.urls import path
 from . import views
 
-app_name = 'billing'
+# app_name = 'billing'
 
 urlpatterns = [
-    path('', views.billing_list, name='billing-list'),
+    path('', views.billing_dashboard, name='billing-dashboard'),
+    path('billng', views.billing_list, name='billing-list'),
     path('billing/<int:pk>/', views.billing_detail, name='billing-detail'),
     path('billing/create/', views.create_billing_record, name='create-billing-record'),
     path('billing/<int:pk>/update/', views.update_billing_record, name='update-billing-record'),

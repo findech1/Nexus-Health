@@ -1,21 +1,63 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-teal-900">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="bg-teal-700 text-white w-64 flex-shrink-0">
+            <div class="p-4">
+                <h2 class="text-xl font-bold mb-4">Billing Dashboard</h2>
+                <nav>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-teal-600{% endif %}">Dashboard Home</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'billing-list' %}bg-teal-600{% endif %}">Billing Records</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-teal-600{% endif %}">Create Record</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
 
-{% block content %}
-<div class="min-h-screen flex items-center justify-center bg-teal-100">
-    <div class="bg-white p-8 rounded shadow-md w-full">
-        <h2 class="text-2xl font-bold text-center mb-8">Billing List</h2>
-        <ul>
-            {% for bill in bills %}
-                <li class="mb-4">
-                    <a href="{% url 'billing-detail' bill.id %}" class="text-teal-600 hover:underline">
-                        Bill for {{ bill.patient.name }} - {{ bill.amount }} ({{ bill.status }})
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-        <button class="mt-4 bg-teal-500 text-white py-2 px-4 rounded">
-            <a href="{% url 'create-billing-record' %}">Create New Billing Record</a>
-        </button>
+        <!-- Main Content -->
+        <div class="flex-1 p-4">
+            <h1 class="text-2xl font-bold mb-4">Billing Records</h1>
+            <table class="min-w-full bg-white">
+                <thead class="bg-teal-600 text-white">
+                    <tr>
+                        <th class="py-2 px-4">ID</th>
+                        <th class="py-2 px-4">Patient</th>
+                        <th class="py-2 px-4">Amount</th>
+                        <th class="py-2 px-4">Status</th>
+                        <th class="py-2 px-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in billing_records %}
+                        <tr class="border-b">
+                            <td class="py-2 px-4">{{ record.id }}</td>
+                            <td class="py-2 px-4">{{ record.patient }}</td>
+                            <td class="py-2 px-4">${{ record.amount }}</td>
+                            <td class="py-2 px-4">{{ record.status }}</td>
+                            <td class="py-2 px-4">
+                                <a href="{% url 'billing-detail' record.id %}" class="text-blue-500 hover:underline">View</a> |
+                                <a href="{% url 'update-billing-record' record.id %}" class="text-green-500 hover:underline">Edit</a> |
+                                <a href="{% url 'delete-billing-record' record.id %}" class="text-red-500 hover:underline">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>

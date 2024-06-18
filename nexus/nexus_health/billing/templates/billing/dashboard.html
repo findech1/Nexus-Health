@@ -15,14 +15,13 @@
                 <nav>
                     <ul>
                         <li class="mb-2">
-                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'billing-list' %}bg-gray-700{% endif %}">
-                                Billing Records
-                            </a>
+                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-gray-700{% endif %}">Dashboard Home</a>
                         </li>
                         <li class="mb-2">
-                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-gray-700{% endif %}">
-                                Create Record
-                            </a>
+                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'billing-list' %}bg-gray-700{% endif %}">Billing Records</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-gray-700{% endif %}">Create Record</a>
                         </li>
                     </ul>
                 </nav>
