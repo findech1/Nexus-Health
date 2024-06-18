@@ -9,6 +9,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'billing'
+
 urlpatterns = [
     path('', views.billing_list, name='billing-list'),
     path('billing/<int:pk>/', views.billing_detail, name='billing-detail'),

@@ -63,3 +63,4 @@ urlpatterns = [
     path('accounts/profile/', profile_view, name='profile'),
     path('', TemplateView.as_view(template_name='landing.html'), name='landing'),
 ]
+    
