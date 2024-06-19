@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Billing Record</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="bg-white p-4 rounded shadow max-w-lg mx-auto mt-10">
+        <h2 class="text-xl font-bold mb-4">Update Billing Record</h2>
+        <form method="post" action="/billing/update/">
+            <input type="hidden" name="csrfmiddlewaretoken" value="your_csrf_token_here">
+            <div class="mb-4">
+                <label class="block font-bold mb-2" for="id_patient">Patient</label>
+                <select id="id_patient" name="patient" class="block w-full p-2 border rounded">
+                    <!-- Options for patients -->
+                    <option value="1">Patient 1</option>
+                    <option value="2">Patient 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block font-bold mb-2" for="id_appointment">Appointment</label>
+                <select id="id_appointment" name="appointment" class="block w-full p-2 border rounded">
+                    <!-- Options for appointments -->
+                    <option value="1">Appointment 1</option>
+                    <option value="2">Appointment 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block font-bold mb-2" for="id_amount">Amount</label>
+                <input type="number" id="id_amount" name="amount" class="block w-full p-2 border rounded" value="100.00">
+            </div>
+            <div class="mb-4">
+                <label class="block font-bold mb-2" for="id_status">Status</label>
+                <select id="id_status" name="status" class="block w-full p-2 border rounded">
+                    <!-- Options for status -->
+                    <option value="pending">Pending</option>
+                    <option value="paid">Paid</option>
+                    <option value="overdue">Overdue</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <button type="submit" class="bg-teal-500 text-white py-2 px-4 rounded">Save Changes</button>
+            <a href="/billing/list/" class="ml-2 inline-block bg-gray-500 text-white py-2 px-4 rounded">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

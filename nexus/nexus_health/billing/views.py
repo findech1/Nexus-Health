@@ -61,6 +61,7 @@ def create_billing_record(request):
 
 def update_billing_record(request, pk):
     billing_record = get_object_or_404(BillingRecord, pk=pk)
+
     if request.method == 'POST':
         form = BillingRecordForm(request.POST, instance=billing_record)
         if form.is_valid():
@@ -68,7 +69,8 @@ def update_billing_record(request, pk):
             return redirect('billing-list')
     else:
         form = BillingRecordForm(instance=billing_record)
-    return render(request, 'billing/billing_form.html', {'form': form})
+
+    return render(request, 'billing/update_billing_record.html', {'form': form})
 
 def delete_billing_record(request, pk):
     billing_record = get_object_or_404(BillingRecord, pk=pk)

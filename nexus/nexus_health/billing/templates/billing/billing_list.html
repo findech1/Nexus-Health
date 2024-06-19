@@ -3,60 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billing Records</title>
+    <title>{% block title %}Nexus Health{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .teal-sidebar {
+            background-color: #0d9488;
+        }
+        .teal-sidebar-hover:hover {
+            background-color: #0b7e74;
+        }
+    </style>
 </head>
-<body class="bg-white text-teal-900">
+<body class="bg-teal-100 text-teal-900">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="bg-teal-700 text-white w-64 flex-shrink-0">
+        <div class="teal-sidebar text-gray-100 w-64 flex-shrink-0">
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-4">Billing Dashboard</h2>
                 <nav>
                     <ul>
                         <li class="mb-2">
-                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-teal-600{% endif %}">Dashboard Home</a>
+                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded teal-sidebar-hover {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-teal-700{% endif %}">Dashboard Home</a>
                         </li>
                         <li class="mb-2">
-                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'billing-list' %}bg-teal-600{% endif %}">Billing Records</a>
+                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded teal-sidebar-hover {% if request.resolver_match.url_name == 'billing-list' %}bg-teal-700{% endif %}">Billing Records</a>
                         </li>
                         <li class="mb-2">
-                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-teal-600 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-teal-600{% endif %}">Create Record</a>
+                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded teal-sidebar-hover {% if request.resolver_match.url_name == 'create-billing-record' %}bg-teal-700{% endif %}">Create Record</a>
                         </li>
                     </ul>
                 </nav>
             </div>
-        </aside>
+        </div>
 
         <!-- Main Content -->
         <div class="flex-1 p-4">
-            <h1 class="text-2xl font-bold mb-4">Billing Records</h1>
-            <table class="min-w-full bg-white">
-                <thead class="bg-teal-600 text-white">
-                    <tr>
-                        <th class="py-2 px-4">ID</th>
-                        <th class="py-2 px-4">Patient</th>
-                        <th class="py-2 px-4">Amount</th>
-                        <th class="py-2 px-4">Status</th>
-                        <th class="py-2 px-4">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for record in billing_records %}
-                        <tr class="border-b">
+            <div class="bg-white p-4 rounded shadow">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Billing Records</h2>
+                    <a href="{% url 'billing-dashboard' %}" class="inline-block bg-teal-500 text-white py-2 px-4 rounded">Back to Dashboard</a>
+                </div>
+                <table class="w-full">
+                    <thead>
+                        <tr class="bg-teal-500 text-white">
+                            <th class="py-2 px-4">ID</th>
+                            <th class="py-2 px-4">Patient</th>
+                            <th class="py-2 px-4">Amount</th>
+                            <th class="py-2 px-4">Status</th>
+                            <th class="py-2 px-4">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in billing_records %}
+                        <tr class="bg-gray-100">
                             <td class="py-2 px-4">{{ record.id }}</td>
                             <td class="py-2 px-4">{{ record.patient }}</td>
                             <td class="py-2 px-4">${{ record.amount }}</td>
                             <td class="py-2 px-4">{{ record.status }}</td>
                             <td class="py-2 px-4">
-                                <a href="{% url 'billing-detail' record.id %}" class="text-blue-500 hover:underline">View</a> |
-                                <a href="{% url 'update-billing-record' record.id %}" class="text-green-500 hover:underline">Edit</a> |
-                                <a href="{% url 'delete-billing-record' record.id %}" class="text-red-500 hover:underline">Delete</a>
+                                <a href="{% url 'billing-detail' record.id %}" class="inline-block bg-green-500 text-white py-1 px-2 rounded mr-1">View</a>
+                                <a href="{% url 'update-billing-record' record.id %}" class="inline-block bg-blue-500 text-white py-1 px-2 rounded mr-1">Edit</a>
+                                <form action="{% url 'delete-billing-record' record.id %}" method="post" class="inline-block">
+                                    {% csrf_token %}
+                                    <button type="submit" class="bg-red-500 text-white py-1 px-2 rounded">Delete</button>
+                                </form>
                             </td>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'create-billing-record' %}" class="inline-block bg-indigo-500 text-white py-2 px-4 rounded mt-4">Create New Record</a>
+            </div>
         </div>
     </div>
 </body>

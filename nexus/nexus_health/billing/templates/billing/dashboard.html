@@ -5,29 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Nexus Health{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .teal-sidebar {
+            background-color: #0d9488;
+        }
+        .teal-sidebar-hover:hover {
+            background-color: #0b7e74;
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-teal-100">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="bg-gray-800 text-gray-100 w-64 flex-shrink-0">
+        <div class="teal-sidebar text-gray-100 w-64 flex-shrink-0">
             <div class="p-4">
                 <h2 class="text-xl font-bold mb-4">Billing Dashboard</h2>
                 <nav>
                     <ul>
                         <li class="mb-2">
-                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-gray-700{% endif %}">Dashboard Home</a>
+                            <a href="{% url 'billing-dashboard' %}" class="block py-2 px-4 rounded teal-sidebar-hover {% if request.resolver_match.url_name == 'billing-dashboard' %}bg-teal-700{% endif %}">Dashboard Home</a>
                         </li>
                         <li class="mb-2">
-                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'billing-list' %}bg-gray-700{% endif %}">Billing Records</a>
+                            <a href="{% url 'billing-list' %}" class="block py-2 px-4 rounded teal-sidebar-hover {% if request.resolver_match.url_name == 'billing-list' %}bg-teal-700{% endif %}">Billing Records</a>
                         </li>
                         <li class="mb-2">
-                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded hover:bg-gray-700 {% if request.resolver_match.url_name == 'create-billing-record' %}bg-gray-700{% endif %}">Create Record</a>
+                            <a href="{% url 'create-billing-record' %}" class="block py-2 px-4 rounded teal-sidebar-hover {% if request.resolver_match.url_name == 'create-billing-record' %}bg-teal-700{% endif %}">Create Record</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
-
         <!-- Content Area -->
         <div class="flex-1 p-4">
             {% block content %}{% endblock %}
