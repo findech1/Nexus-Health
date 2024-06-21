@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 
 {% block content %}
 <div class="min-h-screen flex items-center justify-center bg-teal-100">
@@ -9,4 +9,17 @@
         <p><strong>Message:</strong> {{ notification.message }}</p>
     </div>
 </div>
+{% endblock %} -->
+<!-- templates/notifications/notification_detail.html -->
+
+<!-- {% extends "base.html" %} -->
+
+{% block content %}
+  <div class="p-4">
+    <h2 class="text-2xl mb-4">{{ notification.message }}</h2>
+    <p>Created at: {{ notification.created_at }}</p>
+    <p>Status: <span class="py-1 px-2 rounded {{ notification.read ? 'bg-green-200' : 'bg-red-200' }}">{{ notification.read ? 'Read' : 'Unread' }}</span></p>
+    <p><a href="{% url 'notification-update' notification.pk %}" class="text-blue-500 hover:underline">Edit</a></p>
+    <p><a href="{% url 'notification-delete' notification.pk %}" class="text-red-500 hover:underline">Delete</a></p>
+  </div>
 {% endblock %}

@@ -1,0 +1,18 @@
+<!-- templates/notifications/notification_form.html -->
+
+
+
+{% block content %}
+  <div class="p-4">
+    <h2 class="text-2xl mb-4">{% if notification.pk %}Edit Notification{% else %}Create Notification{% endif %}</h2>
+    <form method="post" class="max-w-sm">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-2 hover:bg-blue-600">Save</button>
+    </form>
+  </div>
+{% endblock %}
+
+
+
+

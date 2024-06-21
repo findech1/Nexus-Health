@@ -1,0 +1,91 @@
+<!-- templates/base.html -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-500 text-white py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl">Notifications Dashboard</h1>
+            <nav class="mt-2">
+                <a href="{% url 'notification-list' %}" class="mr-4 hover:underline">Home</a>
+                <a href="{% url 'notification-create' %}" class="hover:underline">Create Notification</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html> -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-4 bg-gray-100 min-h-screen">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Notifications Dashboard</h2>
+    
+    <!-- Search and Filter Controls -->
+    <form method="get" class="mb-6 flex flex-wrap items-center gap-4">
+        <input type="text" name="search" placeholder="Search notifications..." 
+               value="{{ search }}"
+               class="p-2 border rounded-lg flex-grow">
+        <div class="flex gap-2">
+            <button type="submit" name="filter" value="all" 
+                    class="{% if filter == 'all' %}bg-blue-500 text-white{% else %}bg-gray-200 text-gray-700{% endif %} px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                All
+            </button>
+            <button type="submit" name="filter" value="unread" 
+                    class="{% if filter == 'unread' %}bg-blue-500 text-white{% else %}bg-gray-200 text-gray-700{% endif %} px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                Unread
+            </button>
+            <button type="submit" name="filter" value="read" 
+                    class="{% if filter == 'read' %}bg-blue-500 text-white{% else %}bg-gray-200 text-gray-700{% endif %} px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                Read
+            </button>
+        </div>
+    </form>
+
+    <!-- Notifications List -->
+    <ul class="space-y-4">
+        {% for notification in notifications %}
+        <li class="bg-white p-4 rounded-lg shadow-md transition hover:shadow-lg">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="{% url 'notification-detail' notification.pk %}" 
+                       class="text-lg font-semibold text-blue-600 hover:underline">
+                        {{ notification.message }}
+                    </a>
+                    <p class="text-sm text-gray-500 mt-1">{{ notification.created_at|date:"F d, Y H:i" }}</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="py-1 px-3 rounded-full text-sm font-medium
+                                 {% if notification.read %}
+                                 bg-green-200 text-green-800
+                                 {% else %}
+                                 bg-red-200 text-red-800
+                                 {% endif %}">
+                        {{ notification.read|yesno:"Read,Unread" }}
+                    </span>
+                    <form method="post" action="{% url 'notification-toggle' notification.pk %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <button type="submit" 
+                                class="bg-gray-200 text-gray-700 px-3 py-1 rounded-lg hover:bg-gray-300 transition">
+                            Toggle
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </li>
+        {% empty %}
+        <li class="text-center text-gray-500">No notifications found.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
