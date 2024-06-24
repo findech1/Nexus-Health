@@ -1,13 +1,11 @@
-{% extends 'base.html' %}
+
+
+{% block title %}Provider Detail{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-teal-100">
-    <div class="bg-white p-8 rounded shadow-md w-full">
-        <h2 class="text-2xl font-bold text-center mb-8">Provider Detail</h2>
-        <p><strong>Name:</strong> Dr. {{ provider.name }}</p>
-        <p><strong>Specialty:</strong> {{ provider.specialty }}</p>
-        <p><strong>Contact:</strong> {{ provider.contact }}</p>
-        <a href="{% url 'appointment-create' provider.id %}" class="mt-4 bg-teal-500 text-white py-2 px-4 rounded">Schedule Appointment</a>
-    </div>
-</div>
+<h1 class="text-2xl font-bold mb-4">Provider Detail</h1>
+<p><strong>Name:</strong> {{ provider.user.get_full_name }}</p>
+<p><strong>Specialty:</strong> {{ provider.specialty.name }}</p>
+<p><strong>Availability:</strong> {{ provider.availability }}</p>
+<a href="{% url 'provider-list' %}" class="text-teal-500">Back to Providers</a>
 {% endblock %}

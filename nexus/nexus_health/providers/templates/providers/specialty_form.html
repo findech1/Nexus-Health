@@ -1,0 +1,25 @@
+
+
+{% block title %}Add/Update Specialty{% endblock %}
+
+{% block content %}
+<div class="flex">
+    <aside class="w-1/4 bg-teal-500 p-4">
+        <nav>
+            <ul>
+                <li><a href="{% url 'provider-list' %}" class="text-white block py-2 px-4">Providers</a></li>
+                <li><a href="{% url 'specialty-list' %}" class="text-white block py-2 px-4">Specialties</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="flex-1 p-4">
+        <h1 class="text-2xl font-bold mb-4">Add/Update Specialty</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="text-teal-500">Save</button>
+        </form>
+        <a href="{% url 'specialty-list' %}" class="text-teal-500">Back to Specialties</a>
+    </main>
+</div>
+{% endblock %}

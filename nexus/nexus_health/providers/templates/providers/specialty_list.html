@@ -1,0 +1,42 @@
+
+
+{% block title %}Specialties{% endblock %}
+
+{% block content %}
+<div class="flex">
+    <aside class="w-1/4 bg-teal-500 p-4">
+        <nav>
+            <ul>
+                <li><a href="{% url 'provider-list' %}" class="text-white block py-2 px-4">Providers</a></li>
+                <li><a href="{% url 'specialty-list' %}" class="text-white block py-2 px-4">Specialties</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="flex-1 p-4">
+        <h1 class="text-2xl font-bold mb-4">Specialties</h1>
+        <a href="{% url 'specialty-create' %}" class="text-teal-500">Add Specialty</a>
+        <table class="min-w-full divide-y divide-gray-200 mt-4">
+            <thead>
+                <tr>
+                    <th class="px-6 py-3">ID</th>
+                    <th class="px-6 py-3">Name</th>
+                    <th class="px-6 py-3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for specialty in specialties %}
+                <tr>
+                    <td class="px-6 py-4">{{ specialty.id }}</td>
+                    <td class="px-6 py-4">{{ specialty.name }}</td>
+                    <td class="px-6 py-4">
+                        <a href="{% url 'specialty-detail' specialty.id %}" class="text-teal-500">View</a>
+                        <a href="{% url 'specialty-update' specialty.id %}" class="text-teal-500">Edit</a>
+                        <a href="{% url 'specialty-delete' specialty.id %}" class="text-teal-500">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</div>
+{% endblock %}

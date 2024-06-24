@@ -8,6 +8,7 @@ class SpecialtySerializer(serializers.ModelSerializer):
 
 class ProviderSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField()
+    specialty = serializers.PrimaryKeyRelatedField(queryset=Specialty.objects.all())
 
     class Meta:
         model = Provider

@@ -1,18 +1,32 @@
-{% extends 'base.html' %}
+
+
+{% block title %}Providers{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-teal-100">
-    <div class="bg-white p-8 rounded shadow-md w-full">
-        <h2 class="text-2xl font-bold text-center mb-8">Providers List</h2>
-        <ul>
-            {% for provider in providers %}
-                <li class="mb-4">
-                    <a href="{% url 'provider-detail' provider.id %}" class="text-teal-600 hover:underline">
-                        Dr. {{ provider.name }} - {{ provider.specialty }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+<h1 class="text-2xl font-bold mb-4">Providers</h1>
+<a href="{% url 'provider-create' %}" class="text-teal-500">Add Provider</a>
+<table class="min-w-full divide-y divide-gray-200 mt-4">
+    <thead>
+        <tr>
+            <th class="px-6 py-3">ID</th>
+            <th class="px-6 py-3">Name</th>
+            <th class="px-6 py-3">Specialty</th>
+            <th class="px-6 py-3">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for provider in providers %}
+        <tr>
+            <td class="px-6 py-4">{{ provider.id }}</td>
+            <td class="px-6 py-4">{{ provider.user.get_full_name }}</td>
+            <td class="px-6 py-4">{{ provider.specialty.name }}</td>
+            <td class="px-6 py-4">
+                <a href="{% url 'provider-detail' provider.id %}" class="text-teal-500">View</a>
+                <a href="{% url 'provider-update' provider.id %}" class="text-teal-500">Edit</a>
+                <a href="{% url 'provider-delete' provider.id %}" class="text-teal-500">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
